@@ -3,7 +3,7 @@ const variables ={
         port: process.env.port || 3000
     },
     Database:{
-        connection:process.env.connection || 'mongodb+srv://root:root@cluster0-kjocf.mongodb.net/test?retryWrites=true&w=majority'
+        connection:process.env.connection || 'mongodb+srv://root:root@cluster0-kjocf.mongodb.net/nofood?retryWrites=true&w=majority'
     }
 }
 
