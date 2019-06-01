@@ -5,7 +5,8 @@ const validation = require('../bin/helpers/validation');
 const ctrlBase = require('../bin/base/controller-base');
 const _repo = new repository();
 const md5 = require('md5');
-
+const jwt = require('jsonwebtoken');
+const variables = require('../bin/configuration/variables');
 
 function usuarioController() {
 
@@ -62,5 +63,29 @@ usuarioController.prototype.getById = async (req, res) => {
 usuarioController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
 };
+
+usuarioController.prototype.autenticar = async (req, res) => {
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.email, 'Informe o e-mail');
+    _validationContract.isRequired(req.body.senha, 'Informe a senha');
+    _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido');
+
+    if (!_validationContract.isValid()) {
+     res.status(400).send({message:"Não foi possível efetuar o login", validation: _validationContract.errors()});
+     return;
+    }
+
+    let usuarioEncontrado = await _repo.authenticate(req.body.email, req.body.senha);
+
+    if(usuarioEncontrado){
+        res.status(200).send({
+            usuario: usuarioEncontrado,
+            token: jwt.sign({user : usuarioEncontrado}, variables.Security.secretKey)
+        })
+    } else {
+        res.status(404).send({message: 'usuário e senha encontrados são inválidos!'});
+    }
+
+}
 
 module.exports = usuarioController;
