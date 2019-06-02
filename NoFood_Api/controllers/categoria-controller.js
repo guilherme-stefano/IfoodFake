@@ -1,34 +1,43 @@
 'use strict'
+
 const repository = require('../repositories/categoria-repository');
+const ctrlBase = require('../bin/base/controller-base');
+const validation = require('../bin/helpers/validation');
+const _repo = new repository();
 
 function categoriaController() {
 
 }
 
 categoriaController.prototype.post = async (req, res) => {
-    let resultado = await new repository().create(req.body);
-    //return model.save();
-    res.status(201).send(resultado);
+
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.titulo, 'o título é obrigatório');
+    _validationContract.isRequired(req.body.foto, 'A foto é obrigatória');
+
+    ctrlBase.post(_repo, _validationContract, req, res);
 };
 
-categoriaController.prototype.put = async (req, res) => { 
-    let resultado = await new repository().update(req.params.id,req.body);
-    res.status(202).send(resultado);
+categoriaController.prototype.put = async (req, res) => {
+
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.titulo, 'o título é obrigatório');
+    _validationContract.isRequired(req.body.foto, 'A foto é obrigatória');
+    _validationContract.isRequired(req.params.id, 'O Id que será atualizado é obrigatório');
+
+    ctrlBase.put(_repo, _validationContract, req, res);
 };
 
-categoriaController.prototype.get = async (req, res) => { 
-    let lista = await new repository().getAll();
-    res.status(200).send(lista);
+categoriaController.prototype.get = async (req, res) => {
+    ctrlBase.get(_repo, req, res);
 };
 
-categoriaController.prototype.getById = async (req, res) => { 
-    let categoriaEncontrada = await new repository().getById(req.params.id);
-    res.status(200).send(categoriaEncontrada);
+categoriaController.prototype.getById = async (req, res) => {
+    ctrlBase.getById(_repo, req, res);
 };
 
-categoriaController.prototype.delete = async (req, res) => { 
-    let categoriaDeletada = await new repository().delete(req.params.id);
-    res.status(200).send(categoriaDeletada);
+categoriaController.prototype.delete = async (req, res) => {
+    ctrlBase.delete(_repo, req, res);
 };
 
 module.exports = categoriaController;

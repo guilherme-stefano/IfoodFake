@@ -6,7 +6,7 @@ const schema = mongoose.Schema;
 const produtoModel = new schema({
     nome: { trim: true, index: true, required: true, type: String},
     descricao:{ type:String},
-    ativo:{type: Boolean, required: true},
+    ativo:{type: Boolean, required: true, default:true},
     preco:{type: Number, required:true},
     foto:{ type: String, required:true},
     dataCriacao:{ type:Date, default:Date.now}
