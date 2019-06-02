@@ -1,5 +1,7 @@
 {
   "name": "Nofood_Ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

@@ -23,7 +23,7 @@ export class LoginPage {
   }
 
   abrirCategoria():void{
-    this.navCtrl.setRoot('CategoriaPage');
+    this.navCtrl.setRoot('CategoriasPage');
   }
 
 }
