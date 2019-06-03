@@ -23,14 +23,17 @@ usuarioController.prototype.post = async (req, res) => {
     _validationContract.isRequired(req.body.senhaConfirmacao, 'A senha de confirmação é obrigatória');
     _validationContract.isTrue(req.body.senha != req.body.senhaConfirmacao, 'A Senha e a Confirmação não são iguais');
 
-    let usuarioIsEmailExiste = await _repo.isEmailExiste(req.body.email);
-    if (usuarioIsEmailExiste) {
-        _validationContract.isTrue((usuarioIsEmailExiste.nome != undefined), `Já existe o e-mail ${req.body.email} cadastrado em nossa base.`);
+    if(req.body.email){
+        let usuarioIsEmailExiste = await _repo.isEmailExiste(req.body.email);
+        if (usuarioIsEmailExiste) {
+            _validationContract.isTrue((usuarioIsEmailExiste.nome != undefined), `Já existe o e-mail ${req.body.email} cadastrado em nossa base.`);
+        }
     }
-
+    
+    if(req.body.senha){
     //Criptografa a senha do usuário
-    req.body.senha = md5(req.body.senha);
-
+        req.body.senha = md5(req.body.senha);
+    }
     ctrlBase.post(_repo, _validationContract, req, res);
 };
 

@@ -33,8 +33,14 @@ export class LoginPage {
     let result = await this.usuarioSrv.autenticate(this.form.email, this.form.senha);
     //this.navCtrl.setRoot('CategoriasPage');
     if(result.success){
-      console.log(result);
+      UsuarioProvider.RegisterLogin(result.data);
+      console.log(result.data);
+      this.navCtrl.setRoot('CategoriasPage');
     }
+  }
+
+  cadastrar():void{
+    this.navCtrl.setRoot('CadastroPage');
   }
 
 }

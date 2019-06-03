@@ -1,8 +1,7 @@
-import { ProviderBase } from "../base/providerBase";
-
-export class UsuarioModel extends ProviderBase<UsuarioModel> {
+export class UsuarioModel  {
     nome:string;
     email:string;
     senha:string;
+    senhaConfirmacao: string;
     foto:string;
 }

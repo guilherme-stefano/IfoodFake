@@ -14,3 +14,37 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+.list-transparent .item {
+    background: transparent !important;
+  }
+  
+  .list.list-transparent .item-input:last-child {
+    border-bottom: none !important;
+  }
+  
+  .logo {
+    width: 100%;
+    text-align: center;
+    margin-top: 20%
+  }
+  .logo span {
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+  }
+  .logo img {
+    width: 120px;
+  }
+
+  .backImage .scroll-content {
+    background: rgba(189, 8, 28, 0.6);
+}
+
+ion-content.backImage {
+    background: url(/assets/imagens/fundo.jpg);
+    background-size: cover;
+}

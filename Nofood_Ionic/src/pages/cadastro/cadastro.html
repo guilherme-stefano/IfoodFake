@@ -1,0 +1,32 @@
+<ion-content padding class="backImage">
+
+  <div class="logo">
+    <img src="/assets/imagens/icon-branco.png" alt="">
+    <span>NoFood</span>
+  </div>
+
+  <ion-list no-lines class="list-transparent">
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.nome" type="text" placeholder="Nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.email" type="text" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senha" type="password" placeholder="Senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senhaConfirmacao" type="password" placeholder="Confirmação da Senha"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+   <ion-row>
+     <button ion-button block round color="secondary" (click)="cadastrar()">Cadastrar</button>
+   </ion-row> 
+   <ion-row>
+    <button ion-button block outline round color="secondary" (click)="cancelar()" >Cancelar</button>
+  </ion-row> 
+  </ion-grid>
+
+</ion-content>
