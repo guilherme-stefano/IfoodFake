@@ -1,5 +1,5 @@
-<ion-content no-padding>
-    <div class="red">
+<ion-content padding>
+
       <div class="logo">
         <img src="/assets/imagens/icon-branco.png" alt="">
         <span>NoFood</span>
@@ -7,16 +7,16 @@
   
       <ion-list no-lines>
         <ion-item>
-          <ion-input type="text" placeholder="E-mail"></ion-input>
+          <ion-input [(ngModel)]="form.email" type="text" placeholder="E-mail"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="password" placeholder="Senha"></ion-input>
+          <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
         </ion-item>
       </ion-list>
   
       <ion-grid>
         <ion-row>
-          <button ion-button color="secondary" block round (click)="abrirCategoria()">
+          <button ion-button color="secondary" block round (click)="login()">
             Efetuar Login
           </button>
         </ion-row>
@@ -34,5 +34,5 @@
           </button>
         </ion-row>
       </ion-grid>
-    </div>
+
   </ion-content>
