@@ -1,0 +1,19 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Categorias</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only >
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-list lines>
+    <ion-item *ngFor="let item of lista" text-wrap>
+      {{item.titulo}}
+    </ion-item>
+  </ion-list>
+</ion-content>
