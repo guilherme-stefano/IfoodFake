@@ -1,3 +1,4 @@
+import { CategoriaModel } from './../../app/models/CategoriaModel';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdmCategoriaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  categoria: CategoriaModel;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdmCategoriaPage');
+      let categ = this.navParams.get('_categoria');
+      if(categ)
+        this.categoria = <CategoriaModel>categ;
+      else 
+      this.categoria = new CategoriaModel();
   }
 
 }

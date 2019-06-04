@@ -27,11 +27,14 @@ export class AdmCategoriasPage {
   }
 
 
-   private async _loadData() : Promise<void>{
+  private async _loadData() : Promise<void>{
     let categoriaResult = await this.categoriaSrv.get();
     if(categoriaResult.success){
       this.lista = <Array<CategoriaModel>>categoriaResult.data;
     }
-      
-    }
   }
+
+  addOrEdit(model?: CategoriaModel): void {
+    this.navCtrl.push('AdmCategoriaPage',{_categoria: model});
+  }
+}
