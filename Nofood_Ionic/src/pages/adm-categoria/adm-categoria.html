@@ -8,7 +8,7 @@
   <ion-navbar color="primary">
     <ion-title>Categoria</ion-title>
     <ion-buttons right>
-      <button ion-button clear>
+      <button ion-button clear (click)="salvar()">
         Salvar
       </button>
       <button ion-button icon-only>
@@ -29,10 +29,13 @@
      <ion-textarea rows="4" [(ngModel)]="categoria.descricao" placeholder="Adicione a descrição da sua categoria"></ion-textarea>
    </ion-item>
    <ion-item text-center>
-     <button ion-button clear >
+     <button ion-button clear (click)="getPictureOption()">
        <ion-icon name="camera" item-left></ion-icon>
        Selecionar Foto
      </button>
+   </ion-item>
+   <ion-item *ngIf="categoria.foto">
+    <img [src]="categoria.foto">
    </ion-item>
   
   </ion-list>
