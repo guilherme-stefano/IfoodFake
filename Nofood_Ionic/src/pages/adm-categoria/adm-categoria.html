@@ -11,7 +11,7 @@
       <button ion-button clear (click)="salvar()">
         Salvar
       </button>
-      <button ion-button icon-only>
+      <button *ngIf="categoria._id" ion-button icon-only (click)="excluir()">
         <ion-icon name="trash"></ion-icon>
       </button>
     </ion-buttons>
