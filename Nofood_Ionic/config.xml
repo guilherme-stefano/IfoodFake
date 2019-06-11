@@ -77,7 +77,7 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <allow-navigation href="http://192.168.1.4:8100" />
-    <allow-navigation href="http://192.168.60.213:8100" sessionid="f8506191" />
+    <allow-navigation href="http://192.168.60.213:8100" sessionid="676a3a4e" />
     <engine name="ios" spec="5.0.1" />
     <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
