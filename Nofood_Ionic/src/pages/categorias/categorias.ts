@@ -30,4 +30,9 @@ export class CategoriasPage {
     this.navCtrl.push('AdmCategoriasPage');
   }
 
+  gerenciarProduto() :void{
+    this.navCtrl.push('AdmProdutosPage');
+  }
+
+
 }

@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriaProvider } from '../providers/categoria/categoria';
 import { CameraProvider } from '../providers/camera/camera';
 import { Camera } from '@ionic-native/camera';
+import { ProdutoProvider } from '../providers/produto/produto';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { Camera } from '@ionic-native/camera';
     CategoriaProvider,
     CameraProvider,
     Camera,
-    Network
+    Network,
+    ProdutoProvider
   ]
 })
 export class AppModule {}

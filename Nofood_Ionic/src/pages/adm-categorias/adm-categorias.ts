@@ -21,8 +21,8 @@ export class AdmCategoriasPage {
 
   constructor(
     public navCtrl: NavController,
-     public navParams: NavParams,
-     private categoriaSrv: CategoriaProvider) {
+    public navParams: NavParams,
+    private categoriaSrv: CategoriaProvider) {
        this._loadData();
   }
 

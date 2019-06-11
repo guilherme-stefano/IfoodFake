@@ -47,7 +47,7 @@ export class AdmCategoriaPage {
     }
    
     if(sucesso){
-      this.alertSrv.toast('Categorai Salva com sucesso!', 'botton');
+      this.alertSrv.toast('Categoria Salva com sucesso!', 'botton');
       this.navCtrl.setRoot('AdmCategoriasPage');
     }
   }

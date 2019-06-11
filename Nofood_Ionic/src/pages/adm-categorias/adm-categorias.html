@@ -12,6 +12,9 @@
 
 <ion-content no-padding>
   <ion-list lines>
+    <ion-item text-wrap *ngIf="lista.length == 0">
+      Vacê não tem nenhuma categoria cadastrada.
+    </ion-item>
     <ion-item *ngFor="let item of lista" text-wrap  (click)="addOrEdit(item)">
       {{item.titulo}}
     </ion-item>

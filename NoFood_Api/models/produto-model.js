@@ -9,6 +9,7 @@ const produtoModel = new schema({
     ativo:{type: Boolean, required: true, default:true},
     preco:{type: Number, required:true},
     foto:{ type: String, required:true},
+    categoriaId:{type:schema.Types.ObjectId, ref:'Categoria'},
     dataCriacao:{ type:Date, default:Date.now}
 }, {versionKey:false});
 
