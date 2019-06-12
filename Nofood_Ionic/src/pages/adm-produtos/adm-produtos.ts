@@ -22,9 +22,11 @@ export class AdmProdutosPage {
     public navCtrl: NavController,
      public navParams: NavParams,
      private produtoSrv: ProdutoProvider) {
-       this._loadData();
   }
 
+  ionViewWillEnter(){
+    this._loadData();
+  }
 
   private async _loadData() : Promise<void>{
     let categoriaResult = await this.produtoSrv.get();

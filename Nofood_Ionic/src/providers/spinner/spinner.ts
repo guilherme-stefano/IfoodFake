@@ -28,7 +28,7 @@ export class SpinnerProvider {
   Hide(): void{
     if(this.spinner != null){
       this.spinner.dismiss();
-      this.spinner == null;
+      this.spinner = null;
     }
   }
 

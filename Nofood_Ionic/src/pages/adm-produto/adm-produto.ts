@@ -34,15 +34,17 @@ export class AdmProdutoPage {
     private CategoriaSrv: CategoriaProvider,
     private alertSrv:AlertProvider) {
       let _prod = this.navParams.get('_produto');
-      if(_prod){
+      if(_prod && _prod._id){
         this.produto = <ProdutoModel>_prod;
         this.produto.categoriaId = _prod.categoriaId._id;
       }
       else{ 
         this.produto = new ProdutoModel();
       }
+  }
 
-      this._loadData();
+  ionViewWillEnter(){
+    this._loadData();
   }
 
   async _loadData(): Promise<void>{
