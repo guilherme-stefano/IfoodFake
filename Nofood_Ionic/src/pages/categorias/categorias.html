@@ -1,11 +1,23 @@
-<ion-header>
-    <ion-navbar>
-      <ion-title>Categoria</ion-title>
-    </ion-navbar>
-</ion-header>
-
-  <ion-content padding>
-    <button ion-button block (click)="abrirProduto()">Abrir Produto</button>
+  <ion-content no-padding>
+    <!-- <button ion-button block (click)="abrirProduto()">Abrir Produto</button>
     <button ion-button block (click)="gerenciarCategoria()" color="primary">Gerenciar Categoria</button>
-    <button ion-button block (click)="gerenciarProdutos()" color="primary">Gerenciar Produtos</button>
+    <button ion-button block (click)="gerenciarProdutos()" color="primary">Gerenciar Produtos</button>  -->
+
+    <div class="admin">
+      <button ion-button icon-only clear color="light">
+          <ion-icon name="settings">
+            
+          </ion-icon>
+      </button>
+    </div>
+    <div class="blur"> </div>
+    <p class="chamada"  > O que deseja comer ? </p>
+    <div class="categoria" *ngFor="let item of categorias">
+      <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}">
+      </div>
+      <p>
+        {{item.titulo}}
+      </p>
+    </div>  
+
   </ion-content>

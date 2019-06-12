@@ -17,6 +17,7 @@ import { ProdutoProvider } from '../../providers/produto/produto';
 })
 export class AdmProdutosPage {
   lista: Array<ProdutoModel> = new Array<ProdutoModel>();
+  isLoading: boolean = true;
 
   constructor(
     public navCtrl: NavController,
@@ -25,12 +26,14 @@ export class AdmProdutosPage {
   }
 
   ionViewWillEnter(){
+    this.isLoading = true;
     this._loadData();
   }
 
   private async _loadData() : Promise<void>{
     let categoriaResult = await this.produtoSrv.get();
     if(categoriaResult.success){
+      this.isLoading = false;
       this.lista = <Array<ProdutoModel>>categoriaResult.data;
     }
   }

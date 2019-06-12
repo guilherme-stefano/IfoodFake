@@ -1,3 +1,51 @@
 page-categorias {
+    .blur{
+        background: url(../assets/imagens/fundo.jpg);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top:0px;
+        left: 0px;
+        z-index: -1;
+        filter: blur(3px);
+        background-size: cover;
+    }
 
+    .admin{
+        text-align: right;    
+    }
+
+    .categoria{
+        width: 50%;
+        float: left;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .categoria .imagem{
+        width: 120px; 
+        height: 120px;
+        border: 2px solid white;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0 auto;
+        background-size: cover;
+    }
+
+    .categoria p{
+        text-shadow: 2px 2px 2px #000;
+    }
+
+    .chamada{
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 2.1rem;
+        color: white;
+        font-weight: bold;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
 }

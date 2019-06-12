@@ -1,5 +1,7 @@
+import { CategoriaModel } from './../../app/models/CategoriaModel';
+import { CategoriaProvider } from './../../providers/categoria/categoria';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 /**
  * Generated class for the CategoriasPage page.
@@ -15,11 +17,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CategoriasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categorias: Array<CategoriaModel> = new Array<CategoriaModel>();
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private categoriaSrv: CategoriaProvider,
+    public actionSheetCtrl: ActionSheetController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriasPage');
+  ionViewWillEnter(){
+    this.load();
+  }
+
+  async load(): Promise<void>{
+    try{
+      let categoriaResult = await this.categoriaSrv.get();
+      if(categoriaResult.success){
+        this.categorias = <Array<CategoriaModel>>categoriaResult.data;
+      }
+    } catch(error){
+
+    }
+  }
+
+  
+  adminOptions(): void{
+    let action = this.actionSheetCtrl.create({
+      title: "Administração",
+    });
   }
 
   abrirProduto(): void {
