@@ -1,7 +1,7 @@
 
 <ion-header>
     <ion-navbar color="primary">
-      <ion-title>Categorias</ion-title>
+      <ion-title>Produtos</ion-title>
       <ion-buttons right>
         <button ion-button icon-only (click)="addOrEdit({})">
           <ion-icon name="add"></ion-icon>
@@ -16,7 +16,10 @@
         Vacê não tem nenhum produto cadastrado.
       </ion-item>
       <ion-item *ngFor="let item of lista" text-wrap  (click)="addOrEdit(item)">
-        {{item.titulo}}
+        {{item.nome}}
+        <ion-note item-end> 
+            {{item.categoriaId.titulo}}
+        </ion-note>
       </ion-item>
     </ion-list>
   </ion-content>

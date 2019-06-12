@@ -5,6 +5,6 @@ export class ProdutoModel  {
     ativo:string;
     preco:string;
     foto:string;
-    categoriaId:string;
+    categoriaId:any;
     dataCriacao:string;
 }

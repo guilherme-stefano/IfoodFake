@@ -1,9 +1,11 @@
+import { CategoriaProvider } from './../../providers/categoria/categoria';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, Platform } from 'ionic-angular';
 import { ProdutoProvider } from '../../providers/produto/produto';
 import { CameraProvider } from '../../providers/camera/camera';
 import { AlertProvider } from '../../providers/alert/alert';
 import { ProdutoModel } from '../../app/models/ProdutoModel';
+import { CategoriaModel } from '../../app/models/CategoriaModel';
 
 
 /**
@@ -21,6 +23,7 @@ import { ProdutoModel } from '../../app/models/ProdutoModel';
 export class AdmProdutoPage {
 
   produto: ProdutoModel;
+  categorias: Array<CategoriaModel> = new Array<CategoriaModel>();
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -28,12 +31,29 @@ export class AdmProdutoPage {
     public platform: Platform,
     private cameraSrv: CameraProvider,
     private produtoSrv:ProdutoProvider,
+    private CategoriaSrv: CategoriaProvider,
     private alertSrv:AlertProvider) {
-      let categ = this.navParams.get('_produto');
-      if(categ)
-        this.produto = <ProdutoModel>categ;
-      else 
-      this.produto = new ProdutoModel();
+      let _prod = this.navParams.get('_produto');
+      if(_prod){
+        this.produto = <ProdutoModel>_prod;
+        this.produto.categoriaId = _prod.categoriaId._id;
+      }
+      else{ 
+        this.produto = new ProdutoModel();
+      }
+
+      this._loadData();
+  }
+
+  async _loadData(): Promise<void>{
+    try{
+      let categoriasResult = await this.CategoriaSrv.get();
+      if(categoriasResult.success){
+        this.categorias = <Array<CategoriaModel>>categoriasResult.data;
+      }
+    }catch(error){
+      console.log('Erro ao carregar as categorias', error);
+    }
   }
 
 
@@ -53,6 +73,53 @@ export class AdmProdutoPage {
     }
   }
 
+  async excluir():Promise<void>{
+    try {
+      this.alertSrv.confirm('Excluir', `Você realmente deseja excluir o produto ${this.produto.nome}`, async () => {
+        let excluirResult = await this.produtoSrv.delete(this.produto._id);
+        if(excluirResult.success){
+          this.alertSrv.toast('Produto excluído com sucesso!', 'botton');
+          this.navCtrl.setRoot('AdmProdutosPage');
+        }
+      });
+    } catch (error) {
+      console.log('Erro ao excluir');
+    }
+  }
+
   
+  getPictureOption(): void {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Adicionar foto',
+      buttons: [
+        {
+          text: 'Tirar Foto', handler: () => {
+            this.cameraSrv.takePicture(photo => {
+              this.produto.foto = photo;
+            });
+          },
+          icon: this.platform.is('ios') ? null : 'camera'
+        },
+        {
+          text: 'Pegar galeria',
+          handler: (() => {
+            this.cameraSrv.getPictureFromGalery(photo => {
+              this.produto.foto = photo;
+            });
+          }),
+          icon: this.platform.is('ios') ? null : 'images'
+        },
+        {
+          text: 'Cancelar',
+          role: 'destructive',
+          icon: this.platform.is('ios') ? null : 'close',
+          handler: () => {
+            //Cancela a ação
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
 }

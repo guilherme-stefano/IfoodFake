@@ -23,9 +23,20 @@
     <ion-list no-lines>
      <ion-item>
        <ion-label floating>Título</ion-label>
-       <ion-input [(ngModel)]="produto.titulo" type="text"></ion-input>
+       <ion-input [(ngModel)]="produto.nome" type="text"></ion-input>
      </ion-item> 
+    <ion-item>
+      <ion-label floating>Preço</ion-label>
+      <ion-input [(ngModel)]="produto.preco" type="tel"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select [(ngModel)]="produto.categoriaId">
+        <ion-option value="{{item._id}}" *ngFor="let item of categorias">{{item.titulo}}</ion-option>
+      </ion-select>
+    </ion-item>
      <ion-item> 
+        <ion-label floating>Descrição</ion-label>
        <ion-textarea rows="4" [(ngModel)]="produto.descricao" placeholder="Adicione a descrição da sua produto"></ion-textarea>
      </ion-item>
      <ion-item text-center>

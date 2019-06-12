@@ -17,7 +17,8 @@ class produtoRepository {
     }
 
     async getAll() {
-        return await this._base.getAll();
+        return await this._base._model.find().populate('categoriaId', '_id titulo');
+        // return await this._base.getAll();
     }
 
     async getById(id) {
