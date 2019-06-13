@@ -44,18 +44,24 @@ export class CategoriasPage {
   adminOptions(): void{
     let action = this.actionSheetCtrl.create({
       title: "Administração",
+      buttons: [
+        {text: 'Gerenciar Categorias', handler:() => {this.gerenciarCategoria()}},
+        {text: 'Gerenciar Produtos', handler:() => {this.gerenciarProdutos()}},
+        {text: 'Cancelar', handler:() => {}, role:'destructive' }
+      ]
     });
+    action.present();
   }
 
   abrirProduto(): void {
     this.navCtrl.setRoot('TabsPage');
   }
 
-  gerenciarCategoria() :void{
+  private gerenciarCategoria() :void{
     this.navCtrl.push('AdmCategoriasPage');
   }
 
-  gerenciarProdutos() :void{
+  private gerenciarProdutos() :void{
     this.navCtrl.push('AdmProdutosPage');
   }
 
