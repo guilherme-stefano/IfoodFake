@@ -8,33 +8,14 @@
           </div>
         </div>
         <div class="produtos">
-          <div class="produto">
-            <div class="imagem"></div>
-            <div class="titulo">Titulo teste</div>
-            <div class="descricao">Descrição do produto abreviada com …</div>
-            <div class="preco"><span>R$</span>50,00</div>
-            <div class="quantidade"></div>
-          </div>
-          <div class="produto">
-            <div class="imagem"></div>
-            <div class="titulo">Titulo teste</div>
-            <div class="descricao">Descrição do produto abreviada com …</div>
-            <div class="preco"><span>R$</span>50,00</div>
-            <div class="quantidade"></div>
-          </div>
-          <div class="produto">
-            <div class="imagem"></div>
-            <div class="titulo">Titulo teste</div>
-            <div class="descricao">Descrição do produto abreviada com …</div>
-            <div class="preco"><span>R$</span>50,00</div>
-            <div class="quantidade"></div>
-          </div>
-          <div class="produto">
-            <div class="imagem"></div>
-            <div class="titulo">Titulo teste</div>
-            <div class="descricao">Descrição do produto abreviada com …</div>
-            <div class="preco"><span>R$</span>50,00</div>
-            <div class="quantidade"></div>
+          <div class="produto" *ngFor="let item of produtos | orderBy:'nome'">
+            <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}"></div>
+            <div class="titulo">{{item.nome}}</div>
+            <div class="descricao">{{item.descricao}}</div>
+            <div class="preco">{{item.preco | real}}</div>
+            <div class="quantidade">
+              <quantidade></quantidade>
+            </div>
           </div>
         </div>
       </ion-content>
