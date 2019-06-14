@@ -19,7 +19,7 @@ export class ProdutoProvider  extends ProviderBase<ProdutoModel> {
   }
 
   async produtosByCategoriaId(id:string): Promise<HttpResultModel>{
-    return this.http.getByCategoriaId(`${this.url}/categoria`)
+    return this.http.get(`${this.url}/categoria/${id}`)
   }
 
 }
