@@ -4,6 +4,7 @@ export class ConfigHelper {
 
     public static storageKeys ={
         token: 'nofood.token',
-        user: 'nofood.user'
+        user: 'nofood.user',
+        selectCategory: 'nofood.select.category'
     }
 }

@@ -1,3 +1,4 @@
+import { ConfigHelper } from './../../app/helpers/configHelper';
 import { CategoriaModel } from './../../app/models/CategoriaModel';
 import { CategoriaProvider } from './../../providers/categoria/categoria';
 import { Component } from '@angular/core';
@@ -65,5 +66,9 @@ export class CategoriasPage {
     this.navCtrl.push('AdmProdutosPage');
   }
 
+  selecionarProduto(item: CategoriaModel):void{
+    localStorage.setItem(ConfigHelper.storageKeys.selectCategory,JSON.stringify(item));
+    this.navCtrl.setRoot('TabsPage');
+  }
 
 }

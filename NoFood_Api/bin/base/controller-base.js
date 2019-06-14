@@ -58,7 +58,7 @@ exports.getById = async (repository, req, res) => {
             res.status(400).send({ message: 'O parametro Id precisa ser informado.' });
         }
     } catch (error) {
-        console.log('getById com error, motivo: ', err);
+        console.log('getById com error, motivo: ', error);
         res.status(500).send({ message: 'Erro no processamento', error: err });
     }
 };

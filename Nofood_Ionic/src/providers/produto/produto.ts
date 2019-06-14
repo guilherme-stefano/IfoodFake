@@ -3,6 +3,7 @@ import { ProviderBase } from '../../app/base/providerBase';
 import { ProdutoModel } from '../../app/models/ProdutoModel';
 import { HttpProvider } from '../http/http';
 import { ConfigHelper } from '../../app/helpers/configHelper';
+import { HttpResultModel } from '../../app/models/HttpResultModel';
 
 /*
   Generated class for the ProdutoProvider provider.
@@ -15,7 +16,10 @@ export class ProdutoProvider  extends ProviderBase<ProdutoModel> {
 
   constructor(public http: HttpProvider) {
     super( `${ConfigHelper.Url}/produto`, http);
-    console.log('Hello ProdutoProvider Provider');
+  }
+
+  async produtosByCategoriaId(id:string): Promise<HttpResultModel>{
+    return this.http.getByCategoriaId(`${this.url}/categoria`)
   }
 
 }

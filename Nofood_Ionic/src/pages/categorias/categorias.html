@@ -12,7 +12,7 @@
     </div>
     <div class="blur"> </div>
     <p class="chamada"  > O que deseja comer ? </p>
-    <div class="categoria" *ngFor="let item of categorias">
+    <div class="categoria" *ngFor="let item of categorias" (click)="selecionarProduto(item)">
       <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}">
       </div>
       <p>
