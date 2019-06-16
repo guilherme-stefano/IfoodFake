@@ -68,4 +68,7 @@ page-produtos {
     .produto .preco {
         font-size: 2rem;
     }
+    .produto .quantidade{
+        overflow: auto;
+    }
 }

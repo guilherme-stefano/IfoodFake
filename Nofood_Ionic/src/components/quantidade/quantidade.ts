@@ -13,10 +13,20 @@ import { Component } from '@angular/core';
 export class QuantidadeComponent {
 
   text: string;
+  numero: number = 1;
 
   constructor() {
-    console.log('Hello QuantidadeComponent Component');
-    this.text = 'Hello World';
+  }
+
+  adicionar(){
+    this.numero += 1;
+  }
+
+  remover(){
+    let _valorFinal = this.numero -= 1;
+    if(_valorFinal == 0){
+      this.numero = 1;
+    }
   }
 
 }

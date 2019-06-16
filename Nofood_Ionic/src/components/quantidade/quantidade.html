@@ -1,9 +1,9 @@
 <div>
-  <button round ion-button icon-only color="light">
+  <button round ion-button icon-only (click)="remover()" color="light">
     -
   </button>
-  <span>1</span>
-  <button round ion-button icon-only color="dark">
+  <span class="numero">{{numero}}</span>
+  <button round ion-button icon-only (click)="adicionar()" color="dark">
      + 
   </button>
 </div>
