@@ -14,8 +14,9 @@
             <div class="descricao">{{item.descricao}}</div>
             <div class="preco">{{item.preco | real}}</div>
             <div class="quantidade">
-              <quantidade></quantidade>
+              <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
             </div>
           </div>
         </div>
       </ion-content>
+      <tab [pagina]="'Produtos'"></tab>

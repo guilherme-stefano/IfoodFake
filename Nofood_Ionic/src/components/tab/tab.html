@@ -1,0 +1,6 @@
+<ion-footer>
+  <div class="tab" *ngFor="let item of list" [ngClass]='{active:item.IsSelect}'>
+    <ion-icon name="{{item.icon}}"></ion-icon>  
+    <p>{{item.label}}</p>
+  </div>
+</ion-footer>

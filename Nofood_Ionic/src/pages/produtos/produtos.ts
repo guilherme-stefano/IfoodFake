@@ -6,13 +6,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutoProvider } from '../../providers/produto/produto';
 
-/**
- * Generated class for the ProdutosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-produtos',
@@ -42,6 +35,10 @@ export class ProdutosPage {
     } catch (error) {
       console.log('Problema ao carregar os produtos', error);
     }
+  }
+
+  quantidadeAlterada(produto:ProdutoModel, evt:number):void{
+    console.log(`${produto.nome} : quantidade ${evt}`);  
   }
 
 }

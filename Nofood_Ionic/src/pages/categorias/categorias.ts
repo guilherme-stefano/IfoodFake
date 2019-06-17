@@ -55,7 +55,7 @@ export class CategoriasPage {
   }
 
   abrirProduto(): void {
-    this.navCtrl.setRoot('TabsPage');
+    this.navCtrl.setRoot('ProdutosPage');
   }
 
   private gerenciarCategoria() :void{
@@ -68,7 +68,7 @@ export class CategoriasPage {
 
   selecionarProduto(item: CategoriaModel):void{
     localStorage.setItem(ConfigHelper.storageKeys.selectCategory,JSON.stringify(item));
-    this.navCtrl.setRoot('TabsPage');
+    this.navCtrl.setRoot('ProdutosPage');
   }
 
 }
