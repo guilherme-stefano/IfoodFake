@@ -2,25 +2,6 @@ page-produtos {
     ion-content {
         background: #F8F8F8 !important;
     }
-    .topo {
-        position: fixed;
-        width: 100%;
-        background: red;
-        height: 200px;
-        background: linear-gradient(to bottom, rgba(255,0,0,1) 0%, rgba(139,0,0,1) 100%);
-    }
-    .titulo {
-        position: relative;
-        color: white;
-    }
-    .titulo p {
-        float: left;
-        font-size: 2rem;
-        margin: 0px;
-        font-weight: bold;
-        margin-left: 15px;
-        margin-top: 15px;
-    }
     .titulo .cart {
         float: right;
         margin-top: 17px;
