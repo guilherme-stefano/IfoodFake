@@ -1,3 +1,31 @@
 tab {
 
+    .tabs{
+        column-count: 3;
+        padding-top: 15px;
+        background: #f8f8f8;
+        box-shadow: -1px 2px 2px #b2b2b2;
+    }
+
+    .tabs .tab{
+        text-align: center;
+        color: #444;
+        font-size: 1.6rem;
+    }
+
+    .tabs .tab p{
+        margin:10px;
+        font-size: 1.4rem;
+    }
+
+    .tabs .tab .icon{
+        font-size: 2rem;
+    }
+
+    .active {
+        color: red !important;
+        font-weight: bold;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
 }

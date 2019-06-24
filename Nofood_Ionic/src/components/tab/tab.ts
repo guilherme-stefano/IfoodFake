@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'tab',
@@ -9,7 +10,7 @@ export class TabComponent implements OnInit {
   @Input('pagina') pagina: string;
   tabs: Array<{icon:string, path:string, label: string, isSelect:boolean}>
   
-  constructor() {
+  constructor(private navCtrl: NavController) {
   }
 
   ngOnInit(): void {
@@ -20,5 +21,8 @@ export class TabComponent implements OnInit {
       ];
   }
 
+  selecionarTab(path:string):void{
+    this.navCtrl.setRoot(path);
+  }
 
 }
