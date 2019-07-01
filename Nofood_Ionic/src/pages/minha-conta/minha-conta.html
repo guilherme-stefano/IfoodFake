@@ -1,7 +1,13 @@
 <ion-content no-padding>
   <div class="topo"></div>
-  <div class="titulo">
-    Minha Conta
+  <div class="titulo"> Minha Conta </div>
+  <div class="imagem" [ngStyle]="{'background-image': 'url('+ usuarioLogado.foto +')'}">
+  
+  </div>
+  <div class="formulario">
+    <input type="text" placeholder="Nome" [(ngModel)]="usuarioLogado.nome">
+    <input type="text" placeholder="Email"  [(ngModel)]="usuarioLogado.Email">
+    <input type="number" placeholder="Cpf" [(ngModel)]="usuarioLogado.telefone">
   </div>
 </ion-content>
 <tab [pagina]="'Minha Conta'"></tab>

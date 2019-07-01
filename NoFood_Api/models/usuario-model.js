@@ -6,6 +6,7 @@ const schema = mongoose.Schema;
 const usuarioModel = new schema({
     nome: { trim: true, index: true, required: true, type: String},
     email: { type: String, required: true },
+    telefone: { type: String, required: false },
     senha: {type: String, required: true},
     foto: {type: String},
     ativo:{type: Boolean, required: true, default:true},

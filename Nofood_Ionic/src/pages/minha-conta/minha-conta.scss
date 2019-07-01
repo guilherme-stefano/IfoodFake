@@ -1,5 +1,27 @@
 page-minha-conta {
-ion-content {
-    background: #F8F8F8 !important;
-}
+    ion-content {
+        background: #F8F8F8 !important;
+    }
+
+    .titulo {
+        font-size: 2px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .imagem{
+        width: 120px; 
+        height: 120px;
+        border: 2px solid white;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0 auto;
+        background-size: cover;
+    }
+
+    .formulario{
+        margin-top:170px;
+        padding: 10px;
+    }
+
 }
