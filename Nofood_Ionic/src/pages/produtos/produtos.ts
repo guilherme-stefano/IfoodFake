@@ -27,14 +27,11 @@ export class ProdutosPage {
   }
 
   async load():Promise<void>{
-    try {
-      let produtosResult = await this.produtoSrv.produtosByCategoriaId(this.categoriaSelecionada._id);
-      if(produtosResult.success)
-      this.produtos = <Array<ProdutoModel>>produtosResult.data;
-      console.log(this.produtos);
-    } catch (error) {
-      console.log('Problema ao carregar os produtos', error);
-    }
+     await this.produtoSrv.ProdutosByCategoriaIdPipe(this.categoriaSelecionada._id)
+      .subscribe(
+        (data: ProdutoModel[]) =>  {this.produtos =  data , console.log(this.produtos) }, // success path
+        error =>  console.log('Problema ao carregar os produtos', error) // error path
+      );
   }
 
   quantidadeAlterada(produto:ProdutoModel, evt:number):void{
