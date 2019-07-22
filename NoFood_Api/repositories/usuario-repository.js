@@ -6,7 +6,7 @@ class usuarioRepository {
 
     constructor() {
         this._base = new base('Usuario');
-        this._projection = 'nome email _id';
+        this._projection = 'nome telefone email _id';
     }
 
     async isEmailExiste(Email) {
@@ -27,7 +27,8 @@ class usuarioRepository {
             {
                 nome: data.nome,
                 email: data.email,
-                foto: data.foto
+                foto: data.foto,
+                telefone: data.telefone,
             });
         return this._base._model.findById(usuarioAtualizado._id, this._projection)
     }

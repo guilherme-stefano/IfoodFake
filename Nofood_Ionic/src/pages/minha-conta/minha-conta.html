@@ -1,13 +1,21 @@
-<ion-content no-padding>
+<ion-content>
   <div class="topo"></div>
-  <div class="titulo"> Minha Conta </div>
-  <div class="imagem" [ngStyle]="{'background-image': 'url('+ usuarioLogado.foto +')'}">
-  
+  <div class="titulo">Minha Conta</div>
+  <div class="imagem" [ngStyle]="{'background-image': 'url(' + usuarioLogado.foto + ')'}" (click)="mudarFoto()">
+
   </div>
   <div class="formulario">
+
     <input type="text" placeholder="Nome" [(ngModel)]="usuarioLogado.nome">
-    <input type="text" placeholder="Email"  [(ngModel)]="usuarioLogado.Email">
-    <input type="number" placeholder="Cpf" [(ngModel)]="usuarioLogado.telefone">
+    <input type="text" placeholder="Email" [(ngModel)]="usuarioLogado.email">
+    <input type="number" placeholder="Telefone" [(ngModel)]="usuarioLogado.telefone">
+
+    <div class="botao">
+      <button ion-button outline color="primary" round block (click)="salvar()">
+        Salvar os dados
+      </button>
+    </div>
+
   </div>
 </ion-content>
 <tab [pagina]="'Minha Conta'"></tab>
