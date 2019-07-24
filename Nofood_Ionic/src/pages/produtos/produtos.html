@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="produtos">
-          <div class="produto" *ngFor="let item of produtos | orderBy:'nome'">
+          <div class="produto" *ngFor="let item of produtos | orderBy:'nome'" (click)="visualizarProduto(item)" tappable>
             <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}"></div>
             <div class="titulo">{{item.nome}}</div>
             <div class="descricao">{{item.descricao}}</div>
