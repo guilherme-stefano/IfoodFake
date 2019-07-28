@@ -1,15 +1,17 @@
+import { PipesModule } from './../../pipes/pipes.module';
 import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { MeusPedidosPage } from './meus-pedidos';
+import { CarrinhoPage } from './carrinho';
 
 @NgModule({
   declarations: [
-    MeusPedidosPage,
+    CarrinhoPage,
   ],
   imports: [
     ComponentsModule,
-    IonicPageModule.forChild(MeusPedidosPage),
+    PipesModule,
+    IonicPageModule.forChild(CarrinhoPage),
   ],
 })
-export class MeusPedidosPageModule {}
+export class CarrinhoPageModule {}

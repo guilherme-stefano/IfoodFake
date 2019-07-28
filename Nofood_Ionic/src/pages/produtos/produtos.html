@@ -2,7 +2,7 @@
         <div class="topo"></div>
         <div class="titulo">
           <p>{{categoriaSelecionada.titulo}}</p>
-          <div class="cart">
+          <div class="cart" tappable (click)="visualizarCarrinho()">
             <ion-icon name="cart"></ion-icon>
             <span>0 Itens</span>
           </div>

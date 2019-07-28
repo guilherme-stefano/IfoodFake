@@ -47,4 +47,8 @@ export class ProdutosPage {
     modal.present();
   }
 
+  visualizarCarrinho():void {
+    this.navCtrl.push('CarrinhoPage', {});
+  }
+
 }

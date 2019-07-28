@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+    </ion-buttons>
+    <ion-title>Carrinho de Compras</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div class="valor">
+    <h2>{{ totalProdutos | real }}</h2>
+    <small> seu pedido atual </small>
+  </div>
+  <div class="botao-finalizar"> 
+    <div class="botao">Finalizar Pedido</div>
+  </div>
+  <div class="produtos">
+    <div class="produto" *ngFor="let item of produtos " (click)="visualizarProduto(item)" tappable>
+      <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}"></div>
+      <div class="titulo">{{item.nome}}</div>
+      <div class="descricao">{{item.descricao}}</div>
+      <div class="preco">{{item.preco | real}}</div>
+      <div class="quantidade">
+        <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<tab [pagina]="''"></tab>

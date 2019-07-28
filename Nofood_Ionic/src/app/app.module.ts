@@ -16,6 +16,7 @@ import { CategoriaProvider } from '../providers/categoria/categoria';
 import { CameraProvider } from '../providers/camera/camera';
 import { Camera } from '@ionic-native/camera';
 import { ProdutoProvider } from '../providers/produto/produto';
+import { CarrinhoProvider } from '../providers/carrinho/carrinho';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProdutoProvider } from '../providers/produto/produto';
     CameraProvider,
     Camera,
     Network,
-    ProdutoProvider
+    ProdutoProvider,
+    CarrinhoProvider
   ]
 })
 export class AppModule {}
