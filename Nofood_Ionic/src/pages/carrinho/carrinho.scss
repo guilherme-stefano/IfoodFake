@@ -1,3 +1,25 @@
 page-carrinho {
+    .valor {
+        background: linear-gradient(to bottom, rgba(189, 0 ,20 ,1) 0%, rgba(139, 8, 22, 1) 100% );
+        margin-top: -20px;
+        height: 145px;
+        text-align: center;
+        padding-top: 25px;
+        color: white;
+    }
 
+    .botao {
+        color: darkred;
+        font-weight: bold;
+        font-size: 1.8rem;
+        background: linear-gradient(to bottom, rgba(234,175,57,1) 0%, rgba(255,177,0,1) 86%, rgba(234,175,57,1) 100%);
+        padding: 10px;
+        text-align: center;
+        width: calc(100% - 90px);
+        margin-left: 45px;
+        border-radius: 20px;
+        margin-top: -20px;
+        border: 1px solid #f2af22;
+        box-shadow: 0px 3px 6px rgba(0,0,0, 0.16);
+    }
 }
