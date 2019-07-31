@@ -1,7 +1,16 @@
 page-carrinho {
+
+    ion-content{
+        background: #F8F8F8 !important;
+    }
+
+    .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+        background-image: none !important 
+    }
+    
     .valor {
         background: linear-gradient(to bottom, rgba(189, 0 ,20 ,1) 0%, rgba(139, 8, 22, 1) 100% );
-        margin-top: -20px;
+        padding: 8px;
         height: 145px;
         text-align: center;
         padding-top: 25px;
@@ -21,5 +30,13 @@ page-carrinho {
         margin-top: -20px;
         border: 1px solid #f2af22;
         box-shadow: 0px 3px 6px rgba(0,0,0, 0.16);
+    }
+
+    .valor small {
+        font-size: 1.4rem;
+    }
+
+    .valor h2 {
+        font-size: 3.2rem;
     }
 }

@@ -1,3 +1,4 @@
+import { CarrinhoProvider } from './../../providers/carrinho/carrinho';
 import { HttpResultModel } from './../../app/models/HttpResultModel';
 import { ProdutoModel } from './../../app/models/ProdutoModel';
 import { ConfigHelper } from './../../app/helpers/configHelper';
@@ -15,14 +16,21 @@ export class ProdutosPage {
 
   categoriaSelecionada: CategoriaModel = new CategoriaModel();
   produtos: Array<ProdutoModel> = new Array<ProdutoModel>();
+  carrinho:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    private carrinhoSrv: CarrinhoProvider,
     private produtoSrv: ProdutoProvider,
     public modalCtrl: ModalController) {
   }
 
   ionViewWillEnter(){
+    this.carrinhoSrv.carrinho.subscribe(
+      data => {
+        this.carrinho = data;
+        console.log(this.carrinho);
+    });
     this.categoriaSelecionada = <CategoriaModel>JSON.parse(localStorage.getItem(ConfigHelper.storageKeys.selectCategory));
     this.load();
   }
@@ -40,6 +48,7 @@ export class ProdutosPage {
 
   quantidadeAlterada(produto:ProdutoModel, evt:number):void{
     console.log(`${produto.nome} : quantidade ${evt}`);  
+    this.carrinhoSrv.adicionarNovoItem(produto);
   }
 
   visualizarProduto(item: ProdutoModel){

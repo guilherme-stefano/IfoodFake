@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CarrinhoPage {
 
   produtos: any;
-  totalProdutos: any;
+  totalProdutos: number = 0.00;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

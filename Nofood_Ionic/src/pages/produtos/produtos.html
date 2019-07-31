@@ -8,13 +8,15 @@
           </div>
         </div>
         <div class="produtos">
-          <div class="produto" *ngFor="let item of produtos | orderBy:'nome'" (click)="visualizarProduto(item)" tappable>
-            <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}"></div>
-            <div class="titulo">{{item.nome}}</div>
-            <div class="descricao">{{item.descricao}}</div>
-            <div class="preco">{{item.preco | real}}</div>
+          <div class="produto" *ngFor="let item of produtos | orderBy:'nome'">
+            <div (click)="visualizarProduto(item)" tappable>
+                <div class="imagem" [ngStyle]="{'background-image': 'url('+ item.foto +')'}"></div>
+                <div class="titulo">{{item.nome}}</div>
+                <div class="descricao">{{item.descricao}}</div>
+                <div class="preco">{{item.preco | real}}</div>
+            </div>
             <div class="quantidade">
-              <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
+            <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
             </div>
           </div>
         </div>
