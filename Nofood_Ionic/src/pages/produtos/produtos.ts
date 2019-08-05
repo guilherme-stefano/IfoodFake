@@ -6,6 +6,7 @@ import { CategoriaModel } from './../../app/models/CategoriaModel';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ProdutoProvider } from '../../providers/produto/produto';
+import { CarrinhoModel } from '../../app/models/CarrinhoModel';
 
 @IonicPage()
 @Component({
@@ -16,7 +17,7 @@ export class ProdutosPage {
 
   categoriaSelecionada: CategoriaModel = new CategoriaModel();
   produtos: Array<ProdutoModel> = new Array<ProdutoModel>();
-  carrinho:any;
+  carrinho:CarrinhoModel  = new CarrinhoModel();
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -26,7 +27,7 @@ export class ProdutosPage {
   }
 
   ionViewWillEnter(){
-    this.carrinhoSrv.carrinho.subscribe(
+    this.carrinhoSrv.getCarrinho().subscribe(
       data => {
         this.carrinho = data;
         console.log(this.carrinho);

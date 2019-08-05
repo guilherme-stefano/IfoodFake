@@ -4,7 +4,7 @@
           <p>{{categoriaSelecionada.titulo}}</p>
           <div class="cart" tappable (click)="visualizarCarrinho()">
             <ion-icon name="cart"></ion-icon>
-            <span>0 Itens</span>
+            <span>{{carrinho.itens.length}} Itens</span>
           </div>
         </div>
         <div class="produtos">
