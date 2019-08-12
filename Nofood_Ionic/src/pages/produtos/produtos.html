@@ -16,7 +16,7 @@
                 <div class="preco">{{item.preco | real}}</div>
             </div>
             <div class="quantidade">
-            <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
+            <quantidade [produto]="item" (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
             </div>
           </div>
         </div>

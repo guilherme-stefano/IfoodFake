@@ -1,4 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { ProdutoModel } from './../../app/models/ProdutoModel';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { CarrinhoProvider } from '../../providers/carrinho/carrinho';
+import { CarrinhoModel } from '../../app/models/CarrinhoModel';
+import { AcaoCarrinhoEnum } from '../../app/enums/AcaoCarrinhoEnum';
 
 /**
  * Generated class for the QuantidadeComponent component.
@@ -10,17 +14,26 @@ import { Component, Output, EventEmitter } from '@angular/core';
   selector: 'quantidade',
   templateUrl: 'quantidade.html'
 })
-export class QuantidadeComponent {
 
+export class QuantidadeComponent implements OnInit {
   text: string;
-  numero: number = 1;
+  numero: number = 0;
+  @Input('produto') produto : ProdutoModel;
   @Output() quantidadeAlterada = new EventEmitter();
-  constructor() {
+  constructor(private carrinhoSrv: CarrinhoProvider) {
+    
+  }
+
+  ngOnInit(): void {
+    this.numero = this.carrinhoSrv.GetQuantidadeItem(this.produto);
   }
 
   adicionar(){
     this.numero += 1;
-    this.quantidadeAlterada.emit(this.numero);
+    this.quantidadeAlterada.emit({
+      quantidade: this.numero,
+      acao: AcaoCarrinhoEnum.Adicionar
+    });
   }
 
   remover(){
@@ -29,7 +42,9 @@ export class QuantidadeComponent {
       this.numero = 1;
     }
 
-    this.quantidadeAlterada.emit(this.numero);
+    this.quantidadeAlterada.emit({
+      quantidade: this.numero,
+      acao: AcaoCarrinhoEnum.Remover});
   }
 
 }

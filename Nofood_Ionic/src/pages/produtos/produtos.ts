@@ -1,3 +1,4 @@
+import { AcaoCarrinhoEnum } from './../../app/enums/AcaoCarrinhoEnum';
 import { CarrinhoProvider } from './../../providers/carrinho/carrinho';
 import { HttpResultModel } from './../../app/models/HttpResultModel';
 import { ProdutoModel } from './../../app/models/ProdutoModel';
@@ -47,9 +48,13 @@ export class ProdutosPage {
     }
   }
 
-  quantidadeAlterada(produto:ProdutoModel, evt:number):void{
-    console.log(`${produto.nome} : quantidade ${evt}`);  
+  quantidadeAlterada(produto:ProdutoModel, evt:any):void{
+    console.log(`${produto.nome} : quantidade ${evt.quantidade} - acao: ${evt.acao}`);  
     this.carrinhoSrv.adicionarNovoItem(produto);
+    if(evt.acao == AcaoCarrinhoEnum.Adicionar)
+      this.carrinhoSrv.adicionarNovoItem(produto);
+    else 
+      this.carrinhoSrv.removerItem(produto);
   }
 
   visualizarProduto(item: ProdutoModel){
