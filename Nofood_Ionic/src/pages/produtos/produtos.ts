@@ -50,7 +50,6 @@ export class ProdutosPage {
 
   quantidadeAlterada(produto:ProdutoModel, evt:any):void{
     console.log(`${produto.nome} : quantidade ${evt.quantidade} - acao: ${evt.acao}`);  
-    this.carrinhoSrv.adicionarNovoItem(produto);
     if(evt.acao == AcaoCarrinhoEnum.Adicionar)
       this.carrinhoSrv.adicionarNovoItem(produto);
     else 

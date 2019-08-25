@@ -38,8 +38,8 @@ export class QuantidadeComponent implements OnInit {
 
   remover(){
     let _valorFinal = this.numero -= 1;
-    if(_valorFinal == 0){
-      this.numero = 1;
+    if(_valorFinal <= 0){
+      this.numero = 0;
     }
 
     this.quantidadeAlterada.emit({
