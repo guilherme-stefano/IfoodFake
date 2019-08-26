@@ -25,7 +25,10 @@ export class QuantidadeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.numero = this.carrinhoSrv.GetQuantidadeItem(this.produto);
+    this.carrinhoSrv.getCarrinho().subscribe(_=>{
+      this.numero = this.carrinhoSrv.GetQuantidadeItem(this.produto);
+    });
+    
   }
 
   adicionar(){

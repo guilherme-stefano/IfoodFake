@@ -1,3 +1,4 @@
+import { CarrinhoProvider } from './../../providers/carrinho/carrinho';
 import { AlertProvider } from './../../providers/alert/alert';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Button } from 'ionic-angular';
@@ -23,7 +24,8 @@ export class VisualisarProdutoPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public ViewCtrl: ViewController,
-    private alertSrv:AlertProvider) {
+    private alertSrv:AlertProvider,
+    private carrinhoSrv: CarrinhoProvider) {
      
   }
 
@@ -37,6 +39,7 @@ export class VisualisarProdutoPage {
 
   adicionarNoCarrinho(){
     this.alertSrv.toast('Produto adicionado!', 'botton');
+    this.carrinhoSrv.adicionarNovoItem(this.produto);
     this.ViewCtrl.dismiss();  
   }
 
