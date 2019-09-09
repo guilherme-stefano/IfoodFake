@@ -12,7 +12,7 @@ page-produtos {
     .produtos {
          margin-top: 60px;
     }
-    .produto {
+    .produtos .produto {
         width: 80%;
         background: white;
         display: block;
@@ -23,15 +23,15 @@ page-produtos {
         box-shadow: 3px 3px 4px rgba(0,0,0, 0.2);
         padding: 10px;
     }
-    .produto .titulo {
+    .produtos .produto .titulo {
         color: red;
         font-size: 1.6rem;
         margin-bottom: 4px;
     }
-    .produto .descricao {
+    .produtos .produto .descricao {
         height: 50px;
     }
-    .imagem {
+    .produtos .imagem {
         float: left;
         border: 1px solid #E2DDDD;
         width: 79px;
@@ -42,14 +42,14 @@ page-produtos {
         background-position: 50% 50%;
 
     }
-    .produto .preco span {
+    .produtos .produto .preco span {
         font-weight: bold;
         font-size: 1.3rem;
     }
-    .produto .preco {
+    .produtos .produto .preco {
         font-size: 2rem;
     }
-    .produto .quantidade{
+    .produtos .produto .quantidade{
         overflow: auto;
     }
 }

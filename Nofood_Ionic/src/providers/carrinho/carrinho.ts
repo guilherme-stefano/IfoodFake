@@ -1,9 +1,11 @@
+import { ConfigHelper } from './../../app/helpers/configHelper';
 import { ProdutoModel } from './../../app/models/ProdutoModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CarrinhoModel } from '../../app/models/CarrinhoModel';
 import { CarrinhoItemModel } from '../../app/models/CarrinhoItemModel';
+import { Events } from 'ionic-angular';
 
 
 @Injectable()
@@ -12,8 +14,13 @@ export class CarrinhoProvider {
   private _carrinho: CarrinhoModel = new CarrinhoModel();
   private carrinho: Observable<CarrinhoModel>;
   private carrinhoObservable:any;
+  private testeSingleto:number;
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    public evt:Events) {
+    this._carrinho.itens = new Array<CarrinhoItemModel>();
+    this._carrinho.valorTotal = 0.0;
     //inicializando nosso carrinho
     this._carrinho.datahota = new Date();
     // inicializando nosso observable
@@ -21,6 +28,14 @@ export class CarrinhoProvider {
       this.carrinhoObservable = obs;
       this.carrinhoObservable.next(this._carrinho);
     });
+  }
+
+  public setTesteSingleton(){
+    this.testeSingleto = 1;
+  }
+
+  public getTesteSingleton(){
+    console.log(this.testeSingleto);
   }
 
   public getCarrinho():Observable<CarrinhoModel>{
@@ -43,7 +58,7 @@ export class CarrinhoProvider {
     }
 
     this._calcularCarrinho();
-
+    this.evt.publish(ConfigHelper.Events.atualizacaoQuantidadeProduto, {})
     this.carrinhoObservable.next(this._carrinho);
   }
 
@@ -59,7 +74,7 @@ export class CarrinhoProvider {
       }
     }
     this._calcularCarrinho();
-
+    this.evt.publish(ConfigHelper.Events.atualizacaoQuantidadeProduto, {})
     this.carrinhoObservable.next(this._carrinho);
   }
 

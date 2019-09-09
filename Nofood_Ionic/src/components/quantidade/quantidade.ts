@@ -1,8 +1,9 @@
+import { ConfigHelper } from './../../app/helpers/configHelper';
 import { ProdutoModel } from './../../app/models/ProdutoModel';
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { CarrinhoProvider } from '../../providers/carrinho/carrinho';
-import { CarrinhoModel } from '../../app/models/CarrinhoModel';
 import { AcaoCarrinhoEnum } from '../../app/enums/AcaoCarrinhoEnum';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the QuantidadeComponent component.
@@ -20,15 +21,26 @@ export class QuantidadeComponent implements OnInit {
   numero: number = 0;
   @Input('produto') produto : ProdutoModel;
   @Output() quantidadeAlterada = new EventEmitter();
-  constructor(private carrinhoSrv: CarrinhoProvider) {
+
+  constructor(
+    private carrinhoSrv: CarrinhoProvider,
+    private evt: Events) {
     
   }
 
+  private _registerEvent(){
+    this.evt.subscribe(ConfigHelper.Events.atualizacaoQuantidadeProduto, () =>{
+      this._atualizarQuantidade();
+    });  
+  }
+
   ngOnInit(): void {
-    this.carrinhoSrv.getCarrinho().subscribe(_=>{
-      this.numero = this.carrinhoSrv.GetQuantidadeItem(this.produto);
-    });
-    
+    this._atualizarQuantidade();
+    this._registerEvent();
+  }
+
+  private _atualizarQuantidade(): void {
+    this.numero = this.carrinhoSrv.GetQuantidadeItem(this.produto);
   }
 
   adicionar(){

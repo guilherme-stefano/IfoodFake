@@ -25,6 +25,7 @@ export class ProdutosPage {
     private carrinhoSrv: CarrinhoProvider,
     private produtoSrv: ProdutoProvider,
     public modalCtrl: ModalController) {
+      this.carrinhoSrv.setTesteSingleton();
   }
 
   ionViewWillEnter(){
