@@ -13,7 +13,7 @@
     <small> seu pedido atual </small>
   </div>
   <div class="botao-finalizar"> 
-    <div class="botao">Finalizar Pedido</div>
+    <div class="botao" tappable (click)="finalizarPedido()">Finalizar Pedido</div>
   </div>
   <div class="produtos">
     <div class="produto" *ngFor="let item of carrinho.itens" tappable>

@@ -1,3 +1,4 @@
+import { AlertProvider } from './../../providers/alert/alert';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CarrinhoProvider } from '../../providers/carrinho/carrinho';
@@ -20,7 +21,8 @@ export class CarrinhoPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private carrinhoSrv: CarrinhoProvider) {
+    private carrinhoSrv: CarrinhoProvider,
+    private alertSev: AlertProvider) {
       this.carrinhoSrv.getTesteSingleton();
   }
 
@@ -36,6 +38,18 @@ export class CarrinhoPage {
       this.carrinhoSrv.adicionarNovoItem(produto);
     else 
       this.carrinhoSrv.removerItem(produto);
+  }
+
+  async finalizarPedido(): Promise<void>{
+    try{
+      let pedidoResult = await this.carrinhoSrv.SalvarPedido(this.carrinho);
+      if(pedidoResult.success){
+        this.navCtrl.setRoot('MeusPedidosPage');
+        this.alertSev.toast('Pedido realizado com ssucesso, logo você vai tirar a Lara', 'bottom');
+      }
+    } catch(error){
+      console.log('Problema ao enviar seu pedido', error);
+    }
   }
 
 }

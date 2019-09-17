@@ -1,11 +1,12 @@
+import { HttpProvider } from './../http/http';
 import { ConfigHelper } from './../../app/helpers/configHelper';
 import { ProdutoModel } from './../../app/models/ProdutoModel';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CarrinhoModel } from '../../app/models/CarrinhoModel';
 import { CarrinhoItemModel } from '../../app/models/CarrinhoItemModel';
 import { Events } from 'ionic-angular';
+import { HttpResultModel } from '../../app/models/HttpResultModel';
 
 
 @Injectable()
@@ -17,7 +18,7 @@ export class CarrinhoProvider {
   private testeSingleto:number;
 
   constructor(
-    public http: HttpClient,
+    public http: HttpProvider,
     public evt:Events) {
     this._carrinho.itens = new Array<CarrinhoItemModel>();
     this._carrinho.valorTotal = 0.0;
@@ -93,5 +94,22 @@ export class CarrinhoProvider {
       return 0;
     
   }
+
+  public  SalvarPedido(pedido: CarrinhoModel): Promise<HttpResultModel>{
+    let _pedido:any ={};
+    _pedido.valorTotal = pedido.valorTotal;
+    _pedido.itens = [];
+    pedido.itens.forEach(prod => {
+      quantidade: prod.Quantidade;
+      produtoId: prod.Produto._id;
+    });
+
+    _pedido.itens = JSON.stringify( _pedido.itens);
+    return this.http.post(`${ConfigHelper.Url}/pedido`, _pedido);
+  }
+
+ public GetMeusPedidos(): Promise<HttpResultModel>{
+   return this.http.get(`${ConfigHelper.Url}/pedido`);
+ } 
 
 }

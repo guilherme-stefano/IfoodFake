@@ -1,6 +1,6 @@
 'use strict'
 
-const repository = require('../repositories/categoria-repository');
+const repository = require('../repositories/pedido-repository');
 const ctrlBase = require('../bin/base/controller-base');
 const validation = require('../bin/helpers/validation');
 const _repo = new repository();
