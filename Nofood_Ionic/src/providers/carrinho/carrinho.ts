@@ -100,8 +100,10 @@ export class CarrinhoProvider {
     _pedido.valorTotal = pedido.valorTotal;
     _pedido.itens = [];
     pedido.itens.forEach(prod => {
-      quantidade: prod.Quantidade;
-      produtoId: prod.Produto._id;
+      _pedido.itens.push({
+        quantidade: prod.Quantidade,
+        produtoId: prod.Produto._id
+      })
     });
 
     _pedido.itens = JSON.stringify( _pedido.itens);

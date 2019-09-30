@@ -1,11 +1,17 @@
 export class ConfigHelper {
     //public static Url: string = 'http://localhost:4000/api';
-    public static Url: string = '/v1';
+        // p usar local colocar no proxy
+      // "proxyUrl":"http://localhost:4000/api"
+    //usar umbler direto
+    // public static Url: string = 'http://ifoodfake-com-br.umbler.net/api';
+    
+     public static Url: string = '/v1';
 
     public static storageKeys ={
         token: 'nofood.token',
         user: 'nofood.user',
         selectCategory: 'nofood.select.category',
+        oneSignalUid:'nofood.onesignal'
     }
 
     public static Events ={

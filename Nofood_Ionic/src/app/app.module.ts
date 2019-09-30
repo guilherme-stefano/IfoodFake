@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {Network} from '@ionic-native/network'
-
+import { OneSignal } from '@ionic-native/onesignal';
 import { MyApp } from './app.component';
 import { SpinnerProvider } from '../providers/spinner/spinner';
 import { AlertProvider } from '../providers/alert/alert';
@@ -43,6 +43,7 @@ import { CarrinhoProvider } from '../providers/carrinho/carrinho';
     CategoriaProvider,
     CameraProvider,
     Camera,
+    OneSignal,
     Network,
     ProdutoProvider,
     CarrinhoProvider

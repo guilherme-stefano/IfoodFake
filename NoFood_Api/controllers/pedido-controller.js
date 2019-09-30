@@ -14,7 +14,7 @@ pedidoController.prototype.post = async (req, res) => {
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.valorTotal, 'O valor Total é obrigatório');
     _validationContract.isRequired(req.body.itens, 'Informe os itens do seu pedido');
-    req.body.usuarioId = req.usuarioLogado._id;
+    req.body.usuarioId = req.usuarioLogado.user._id;
     ctrlBase.post(_repo, _validationContract, req, res);
 };
 
