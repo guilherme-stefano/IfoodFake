@@ -4,6 +4,8 @@ export class ConfigHelper {
       // "proxyUrl":"http://localhost:4000/api"
     //usar umbler direto
     // public static Url: string = 'http://ifoodfake-com-br.umbler.net/api';
+    //usar umbler proxy
+    //"proxyUrl":"http://ifoodfake-com-br.umbler.net/api"
     
      public static Url: string = '/v1';
 
