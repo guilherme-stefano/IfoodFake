@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, Platform } from 'ionic-angular';
 import { CameraProvider } from '../../providers/camera/camera';
 import { AlertProvider } from '../../providers/alert/alert';
-import { ToggleGesture } from 'ionic-angular/umd/components/toggle/toggle-gesture';
 
 /**
  * Generated class for the AdmCategoriaPage page.

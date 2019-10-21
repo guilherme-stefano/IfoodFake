@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path":"/v1",
-      "proxyUrl":"http://localhost:3000/api"
+      "proxyUrl":"http://ifoodfake-com-br.umbler.net/api"
     }
   ]
 }

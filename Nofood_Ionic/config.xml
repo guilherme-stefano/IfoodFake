@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.rsitecnologia.nofood" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="br.com.nofood" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>NoFood</name>
     <description>Aplicativo com NodeJS e MongoDB.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://172.28.135.97:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -78,8 +78,8 @@
     </platform>
     <allow-navigation href="http://192.168.1.4:8100" />
     <allow-navigation href="http://172.28.135.97:8100" sessionid="0d34f845" />
-    <engine name="ios" spec="5.0.1" />
-    <engine name="android" spec="6.4.0" />
+    <engine name="ios" spec="~4.5.5" />
+    <engine name="android" spec="^8.0.0" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
